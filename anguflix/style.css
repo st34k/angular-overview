@@ -25,6 +25,10 @@ body {
   box-sizing: border-box;
 }
 
+.hidden{
+  display:none;
+}
+
 .roww{
   margin:0 auto;
   padding:1%;
@@ -41,11 +45,24 @@ body {
 
 
 }
+
+
 .movieImg{
   width:100%;
   height:200px;
- 
 
+}
+
+.remove {
+  position:absolute;
+  top:0;
+  right:0;
+  font-size:2em;
+ /* text-shadow: 2px 2px gray;*/
+  background-color:gray;
+  height:40px;
+  width:40px;
+  text-align:center;
 }
 
 .movieImg img{
