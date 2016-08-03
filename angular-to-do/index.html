@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+<link rel="stylesheet" type="text/css" href="node_modules/bootstrap/dist/css/bootstrap.min.css"/> 
+<link rel="stylesheet" type="text/css" href="node_modules/font-awesome/css/font-awesome.css"/> 
+
+<link rel="stylesheet" type="text/css" href="style.css"/>
+
+  <title>Angular to do list</title>
+
+</head>
+<body ng-app = "toDoApp">
+<div class = "container">
+  <div class = "row">
+
+  <div class="col-md-12 form-here" ng-controller = "toDoCtrl">
+    <h1>To do list</h1>
+    <h3>put stuff you need to do, but never will, here.</h3>
+    <form>
+    <input  id = "new-post" type="text" placeholder="To do" ng-model = "toDo"/>
+    <button type="button" class="btn btn-success add" ng-click = "addToDo()">Add to List</button>
+    </form>
+
+    <div class = "theList">
+      <ul>
+        <li ng-repeat = "do in toDoList track by $index" ng-class = "{'green' : isDone}" >
+          {{do}} | Done?  
+          <input type="checkbox" ng-model="isDone">
+          <button class="remove" ng-model="remove" ng-click = "remove()">Remove from List</button>  
+        </li> 
+      </ul>
+    </div>
+
+  </div>
+  </div>
+</div>
+<script type="text/javascript" src="node_modules/angular/angular.min.js"></script>
+<script type="text/javascript" src="app.js"></script>
+
+</body>
+</html>
