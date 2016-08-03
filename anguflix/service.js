@@ -1,3 +1,14 @@
+app.service('yearService', function(){
+  var years=[];
+  
+  for (var i = 1982; i<2017; i++){
+    years.push(i);
+  }
+
+  return {years: years};
+
+});
+
 app.service('movieService', function(){
 
   var allMovies = [
@@ -11,3 +22,10 @@ app.service('movieService', function(){
   return {allMovies: allMovies};  
 
 })
+
+app.service ('personalCollectionService', function(){
+  var personalCollection = [];
+
+  return {personalCollection: personalCollection};
+})
+

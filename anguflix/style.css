@@ -3,18 +3,53 @@ body {
 }
 
 
-
-.addToCollection{
- 
+/*
+.collection{
+  height:300px;
   float:left;
-}
+}*/
 
-.showMovie{
+/*.showMovie{
   width: 30%;
   display: inline-block;
   padding:2%;
+  
+  float:left;
+   background-color:white;
+  border:1px black solid;
+}*/
+
+.myCollection{
+  background-color:orange;
+  padding:5%;
   box-sizing: border-box;
 }
-.showMovie img{
-  width:100%;
+
+.roww{
+  margin:0 auto;
+  padding:1%;
 }
+
+.movie{
+  max-width:30%;
+  box-sizing: border-box;
+  background-color:white;
+  margin:0.5%;
+  padding:0.5%;
+  box-shadow: 1px 1px red;
+  border: blue 2px solid;
+
+
+}
+.movieImg{
+  width:100%;
+  height:200px;
+ 
+
+}
+
+.movieImg img{
+  width:100%;
+  height:200px;
+}
+
