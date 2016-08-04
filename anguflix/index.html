@@ -10,56 +10,56 @@
 </head>
 <body ng-app = "movieApp" ng-controller = "movieCtrl">
 
+<div class="myCollection">
+   <h1>My collection</h1>
+   <form>
+    <div id=
+      <input type="text" class="form-control" ng-model="collection" id="example-search-input">
+        <select ng-model = "query">
+          <option>{{undefined}}</option>
+          <option ng-repeat = "year in years">{{year}}</option>
+        </select>
+    </form>
+</div>
+
   <div class = "container-fluid">
     <div class = "row roww">
-      <div class="col-md-12 header"> 
-        <div class="myCollection">
-          <h1>My collection</h1>
-          <form>
-            <input type="text" ng-model="collection">
-            <select ng-model = "query">
-              <option>{{undefined}}</option>
-              <option ng-repeat = "year in years">{{year}}</option>
-            </select>
-          </form>
-        </div>    
-      </div>
-    </div>
+      
+      <h2 ng-show="show">Select movies from below to add to your collection</h2>
+      <div class = "movie-contain">
+        <div class = "col-md-4 movie" ng-model = "movie" ng-repeat = "movie in myCollection | filter: {title: collection, year: query} track by $index">
+          <div class = "remove" ng-click="remove($index)"><i class="fa fa-times" aria-hidden="true"></i></div>
+            <div class = "movieImg">
+              <img ng-src="{{movie.img}}"/>
+            </div>
+            <div class = "movieInfo">
+              <h2>{{movie.title}}</h2>
+              <h4>{{movie.year}}</h4>
+              <p>{{movie.descrShort}}</p>
 
-    <div class = "row roww">
-      <!-- <div class="col-md-12 collection" ng-controller="collectionCtrl"> -->
-        <h2 ng-show="show">Select movies from below to add to your collection</h2>
-        <div class = "col-md-4 movie" ng-model = "movie" ng-repeat = "movie in myCollection | filter: {title: collection, year: query}">
-          <div class = "remove" ng-click="remove(movie)"><i class="fa fa-times" aria-hidden="true"></i></div>
-          <div class = "movieImg">
-            <img ng-src="{{movie.img}}"/>
-          </div>
-          <div class = "movieInfo">
-            <h2>{{movie.title}}</h2>
-            <h4>{{movie.year}}</h4>
-            <p>{{movie.descrShort}}</p>
-
+            </div>
           </div>
         </div>
-      </div>
-
-</span>  
+    </div>
+  </div>
+ 
 
     <div class = "row roww">
       <h3>All Movies</h3>
       <form class="form-group">
         <input type="text" ng-model="search">Search by Title
       </form>
-
-       <div class = "col-md-4 movie" ng-model="movie" ng-repeat = "movie in allMovies | filter: {title: search}" ng-click = "addToCollection(movie)"> 
-          <div class = "movieImg">
-            <img ng-src="{{movie.img}}"/>
-          </div>
-          <div class = "movieInfo">
-            <h2>{{movie.title}}</h2>
-            <h4>{{movie.year}}</h4>
-           <p>{{movie.descrShort}}</p>
-          </div>
+        <div class = "movie-contain">
+         <div class = "col-md-4  movie" ng-model="movie" ng-click = "addToCollection($index)" ng-repeat = "movie in allMovies | filter: {title: search} track by $index" >
+            <div class = "movieImg">
+              <img ng-src="{{movie.img}}"/>
+            </div>
+            <div class = "movieInfo">
+              <h2>{{movie.title}}</h2>
+              <h4>{{movie.year}}</h4>
+             <p>{{movie.descrShort}}</p>
+            </div>
+        </div>
       </div>
     </div>
   </div>
