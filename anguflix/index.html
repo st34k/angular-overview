@@ -3,6 +3,7 @@
 <head>
 <link rel="stylesheet" type="text/css" href="node_modules/bootstrap/dist/css/bootstrap.min.css"/>
 <link rel="stylesheet" type="text/css" href="node_modules/font-awesome/css/font-awesome.css"/>
+<link href='https://fonts.googleapis.com/css?family=Audiowide|Lobster|Bangers' rel='stylesheet' type='text/css'>
 <link rel="stylesheet" type="text/css" href="style.css">
   <title>
     AnguFlix!
@@ -11,21 +12,40 @@
 <body ng-app = "movieApp" ng-controller = "movieCtrl">
 
 <div class="myCollection">
-   <h1>My collection</h1>
-   <form>
-    <div id=
-      <input type="text" class="form-control" ng-model="collection" id="example-search-input">
-        <select ng-model = "query">
+  <div class = "budget">
+    <h2 id= "budget" ng-model="budget">Your budget: {{budget | currency}}</h2>
+  </div>
+  <div class="anguflix">
+    <h1><i class="fa fa-video-camera" aria-hidden="true"></i> AnguFLIX</h1>
+  </div>
+
+  <div class="mycoll">
+    <h1>My collection</h1>
+  </div>
+
+  <div class = "formhere">
+    <form class="form-inline">
+      <div class="form-group">
+        <input type="text" class="form-control" ng-model="collection" placeholder="Search by Title">
+      </div>
+
+      <div class="form-group">
+
+        <select class="form-control input-select" id="exampleSelect1" ng-model = "query" placeholder="year">
+          <option value="" disabled selected>Search by Year</option>
           <option>{{undefined}}</option>
           <option ng-repeat = "year in years">{{year}}</option>
         </select>
+      </div>
     </form>
+    </div>
+  </div>
 </div>
 
   <div class = "container-fluid">
     <div class = "row roww">
       
-      <h2 ng-show="show">Select movies from below to add to your collection</h2>
+      <h3 ng-show="show">Select movies from below to add to your collection</h3>
       <div class = "movie-contain">
         <div class = "col-md-4 movie" ng-model = "movie" ng-repeat = "movie in myCollection | filter: {title: collection, year: query} track by $index">
           <div class = "remove" ng-click="remove($index)"><i class="fa fa-times" aria-hidden="true"></i></div>
@@ -45,9 +65,9 @@
  
 
     <div class = "row roww">
-      <h3>All Movies</h3>
-      <form class="form-group">
-        <input type="text" ng-model="search">Search by Title
+      <h2 class="movies-title">All Movies</h2>
+      <form class="form-inline">
+        <h3>Search by Title: <input type="text" class="form-control input" ng-model="search"></h3>
       </form>
         <div class = "movie-contain">
          <div class = "col-md-4  movie" ng-model="movie" ng-click = "addToCollection($index)" ng-repeat = "movie in allMovies | filter: {title: search} track by $index" >
